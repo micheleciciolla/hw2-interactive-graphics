@@ -1,2 +1,2 @@
-# hw2-interactive-graphics
-Homework N.2 of Interactive Graphics course - Sapienza Roma University
+# hw2
+Base material for homework 2

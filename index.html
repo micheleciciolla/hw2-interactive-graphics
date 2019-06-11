@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<h1>Homework 2 - Interactive Graphics</h1>
+<h1>Michele Ciciolla, 1869990</h1>
+
+<html>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute  vec4 vPosition;
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+attribute  vec4 vColor;
+attribute  vec2 vTexCoord;
+varying vec4 fColor;
+varying vec2 fTexCoord;
+
+void main()
+{   
+    fColor = vColor;
+    fTexCoord = vTexCoord;
+
+    gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+}
+</script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+
+varying vec4 fColor;
+varying  vec2 fTexCoord;
+
+uniform sampler2D Tex0;
+uniform sampler2D Tex1;
+
+
+void main()
+{
+    // gl_FragColor = fColor;
+    gl_FragColor = fColor*(texture2D(Tex0, fTexCoord)*texture2D(Tex1, fTexCoord));
+
+
+}
+</script>
+
+    <script type="text/javascript" src="./Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="./Common/initShaders.js"></script>
+    <script type="text/javascript" src="./Common/MV.js"></script>
+    <script type="text/javascript" src="Homework2.js"></script>
+
+    <div>
+        camera rot_y<br />[0]<input id="CameraY" type="range" min="0" max="1" step="0.05" value="0" />[+]
+        
+    </div><br />
+
+    <div>
+        camera rot_z<br /> [0]<input id="CameraZ" type="range" min="0" max="1" step="0.05" value="0.0" />[+]
+        
+    </div><br />
+
+    <div>
+        camera rot_x<br /> [0]<input id="CameraX" type="range" min="0" max="1" step="0.05" value="0.0" />[+]
+        
+    </div><br />
+
+    <h3>USE SLIDERS TO BETTER CONTROL POINT OF VIEW</h3>
+
+    <button style="position:absolute;; left:400px; top:160px; background-color:rgb(158, 150, 30);" id="obstacle">
+        <center>HIDE OBSTACLE</center>
+    </button>
+
+    <button style="position:absolute;; left:250px; top:160px; background-color:rgb(158, 150, 30);" id="stop_rotation">
+        <center>STOP ROTATION</center>
+    </button>
+
+    <button style="position:absolute;; left:330px; top:200px; background-color:crimson;" id="saltaostacolo">
+        <center>START ANIMATION</center>
+    </button>
+
+    <button style="position:absolute;; left:335px; top:240px; background-color:ivory;" id="refresh">
+        <center>REFRESH PAGE</center>
+    </button>
+
+    <body>
+        <canvas id="gl-canvas" width="700"" height=" 700">
+            Oops ... your browser doesn't support the HTML5 canvas element
+        </canvas>
+    </body>
+    
+</html>
