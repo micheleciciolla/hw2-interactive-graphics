@@ -6,6 +6,9 @@ Material for homework2 of the Interactive Graphics course at Sapienza
 ## Team
 * Michele Ciciolla <a href="https://github.com/micheleciciolla"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1024px-Octicons-mark-github.svg.png" width="20"></a>
 
+## Discaimer for younger Sapienza Diag students
+Prof. Schaerf usually identify copy-pasted homeworks, so if you would copy this, i suggest you to change comments, variable name and even approach to the solution.
+
 ## Documentation
 You can read our technical documentation about this project here PDF [DOCUMENTATION](review.pdf)
 
